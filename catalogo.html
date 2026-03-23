@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dulzuras Artesanales</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -21,25 +17,14 @@
       background: linear-gradient(135deg, #f9a8d4, #fde68a, #a7f3d0);
       text-align: center;
       padding: 32px 16px 24px;
-      position: relative;
     }
 
-    header h1 {
-      font-size: 2rem;
-      color: #7c3aed;
-      text-shadow: 1px 1px 0 #fff;
-      letter-spacing: 1px;
-    }
+    header .decoracion { font-size: 1.6rem; margin-bottom: 6px; }
+    header h1 { font-size: 2rem; color: #7c3aed; text-shadow: 1px 1px 0 #fff; }
+    header p { margin-top: 6px; font-size: 1rem; color: #92400e; }
 
-    header p {
-      margin-top: 6px;
-      font-size: 1rem;
-      color: #92400e;
-    }
-
-    .decoracion {
-      font-size: 1.6rem;
-      margin-bottom: 6px;
+    @media (min-width: 900px) {
+      header h1 { font-size: 2.6rem; }
     }
 
     .catalogo {
@@ -52,27 +37,22 @@
     }
 
     @media (min-width: 600px) {
-      .catalogo {
-        grid-template-columns: repeat(3, 1fr);
-      }
+      .catalogo { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (min-width: 900px) {
-      .catalogo {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      header h1 {
-        font-size: 2.6rem;
-      }
+      .catalogo { grid-template-columns: repeat(4, 1fr); }
     }
 
+    /* CARD */
     .card {
       background: #fff;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
@@ -80,35 +60,103 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .card img {
+    /* CARRUSEL */
+    .carousel {
+      position: relative;
       width: 100%;
       aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
+      overflow: hidden;
+      background: #f3e8ff;
     }
 
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .carousel-track img {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.75);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .carousel-btn.prev { left: 6px; }
+    .carousel-btn.next { right: 6px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 6px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .carousel-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .carousel-dots span.active { background: #7c3aed; }
+
+    /* CARD BODY */
     .card-body {
       padding: 10px 12px 14px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
     }
 
     .card-body h3 {
       font-size: 0.9rem;
       color: #7c3aed;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .badge {
+    .card-body .descripcion {
+      font-size: 0.78rem;
+      color: #78350f;
+      line-height: 1.4;
+    }
+
+    .card-body .precio {
+      margin-top: auto;
       display: inline-block;
-      margin-top: 6px;
       background: #fde68a;
       color: #92400e;
-      font-size: 0.75rem;
-      padding: 3px 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 12px;
       border-radius: 20px;
-      font-weight: 600;
+      align-self: flex-start;
     }
 
+    /* WHATSAPP */
     .whatsapp-btn {
       display: flex;
       align-items: center;
@@ -129,17 +177,9 @@
       transition: background 0.2s, transform 0.2s;
     }
 
-    .whatsapp-btn:hover {
-      background-color: #1ebe5d;
-      transform: scale(1.05);
-    }
+    .whatsapp-btn:hover { background-color: #1ebe5d; transform: scale(1.05); }
 
-    .whatsapp-btn svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-      flex-shrink: 0;
-    }
+    .whatsapp-btn svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
 
     footer {
       text-align: center;
@@ -151,303 +191,297 @@
 </head>
 <body>
 
-  <header>
-    <div class="decoracion">🐣🍫🌸</div>
-    <h1>Dulzuras Artesanales</h1>
-    <p>Chocolates artesanales para esta Pascua 🐰</p>
-  </header>
+<header>
+  <div class="decoracion">🐣🍫🌸</div>
+  <h1>Dulzuras Artesanales</h1>
+  <p>Chocolates artesanales para esta Pascua 🐰</p>
+</header>
 
-  <div class="catalogo">
+<div class="catalogo">
 
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.17.jpeg" alt="Producto 1" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 1</h3>
-        <span class="badge">¡Consultá precio!</span>
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/Botin.jpeg" alt="Botín" loading="lazy" />
+        <img src="imagenes/BotinDorado.jpeg" alt="Botín Dorado" loading="lazy" />
+        <img src="imagenes/Botines.jpeg" alt="Botines" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
       </div>
     </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.20.jpeg" alt="Producto 2" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 2</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
+    <div class="card-body">
+      <h3>Botín de Chocolate</h3>
+      <p class="descripcion">Delicioso botín artesanal de chocolate.</p>
+      <span class="precio">Consultá precio</span>
     </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.22.jpeg" alt="Producto 3" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 3</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.24.jpeg" alt="Producto 4" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 4</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.25.jpeg" alt="Producto 5" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 5</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.30.jpeg" alt="Producto 6" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 6</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.36.jpeg" alt="Producto 7" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 7</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.41.jpeg" alt="Producto 8" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 8</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.43.jpeg" alt="Producto 9" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 9</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.47.jpeg" alt="Producto 10" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 10</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.48.jpeg" alt="Producto 11" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 11</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.49.jpeg" alt="Producto 12" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 12</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.50 (1).jpeg" alt="Producto 13" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 13</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.50.jpeg" alt="Producto 14" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 14</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.51 (1).jpeg" alt="Producto 15" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 15</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.51 (2).jpeg" alt="Producto 16" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 16</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.51.jpeg" alt="Producto 17" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 17</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.52 (1).jpeg" alt="Producto 18" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 18</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.52.jpeg" alt="Producto 19" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 19</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.53 (1).jpeg" alt="Producto 20" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 20</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.53.jpeg" alt="Producto 21" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 21</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.54 (1).jpeg" alt="Producto 22" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 22</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.54 (2).jpeg" alt="Producto 23" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 23</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.54.jpeg" alt="Producto 24" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 24</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.55 (1).jpeg" alt="Producto 25" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 25</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.55.jpeg" alt="Producto 26" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 26</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.56 (1).jpeg" alt="Producto 27" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 27</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.56.jpeg" alt="Producto 28" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 28</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.57.jpeg" alt="Producto 29" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 29</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.58 (1).jpeg" alt="Producto 30" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 30</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.58.jpeg" alt="Producto 31" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 31</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.23.59.jpeg" alt="Producto 32" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 32</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.24.00.jpeg" alt="Producto 33" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 33</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="imagenes/WhatsApp_Image 2026-03-22 at 18.24.01.jpeg" alt="Producto 34" loading="lazy" />
-      <div class="card-body">
-        <h3>Producto 34</h3>
-        <span class="badge">¡Consultá precio!</span>
-      </div>
-    </div>
-
   </div>
 
-  <footer>
-    🐰 Dulzuras Artesanales &mdash; Pascua 2026 🍫
-  </footer>
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/Botinn.jpeg" alt="Botín" loading="lazy" />
+        <img src="imagenes/BoxCapi.jpeg" alt="Box Capibara" loading="lazy" />
+        <img src="imagenes/Boxcapib.jpeg" alt="Box Capibara" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Producto 2</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
 
-  <a
-    class="whatsapp-btn"
-    href="https://wa.me/542915074187"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.782L0 32l8.418-2.007A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.853l-.485-.288-5.003 1.194 1.234-4.872-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.322s1.428 3.854 1.627 4.12c.199.266 2.81 4.29 6.808 6.017.951.41 1.693.655 2.272.839.954.304 1.823.261 2.51.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.726.232-1.891-.099-.166-.365-.266-.763-.465z"/>
-    </svg>
-    Pedí por WhatsApp
-  </a>
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/Boxcapiba.jpeg" alt="Box Capibara" loading="lazy" />
+        <img src="imagenes/BoxCapibara.jpeg" alt="Box Capibara" loading="lazy" />
+        <img src="imagenes/BoxConejos.jpeg" alt="Box Conejos" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Box Capibara</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/BoxNejo.jpeg" alt="Box Conejo" loading="lazy" />
+        <img src="imagenes/CapiSolo.jpeg" alt="Capibara Solo" loading="lazy" />
+        <img src="imagenes/Combo5.jpeg" alt="Combo 5" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Box Conejos</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/Combo9.jpeg" alt="Combo 9" loading="lazy" />
+        <img src="imagenes/combo9u.jpeg" alt="Combo 9" loading="lazy" />
+        <img src="imagenes/Conejos.jpeg" alt="Conejos" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Combo 9</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/ConejosIndividuales.jpeg" alt="Conejos Individuales" loading="lazy" />
+        <img src="imagenes/Copa.jpeg" alt="Copa" loading="lazy" />
+        <img src="imagenes/Copas.jpeg" alt="Copas" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Conejos Individuales</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 7 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/FamiliaNejo.jpeg" alt="Familia Conejos" loading="lazy" />
+        <img src="imagenes/Huevo15.jpeg" alt="Huevo 15" loading="lazy" />
+        <img src="imagenes/Pelotas.jpeg" alt="Pelotas" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Familia Conejos</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 8 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.50_1.jpeg" alt="Producto 8" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.51.jpeg" alt="Producto 8" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.51_1.jpeg" alt="Producto 8" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Producto 8</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 9 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.51_2.jpeg" alt="Producto 9" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.54.jpeg" alt="Producto 9" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.55.jpeg" alt="Producto 9" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Producto 9</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 10 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.55_1.jpeg" alt="Producto 10" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.56.jpeg" alt="Producto 10" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.56_1.jpeg" alt="Producto 10" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Producto 10</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 11 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.57.jpeg" alt="Producto 11" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.58.jpeg" alt="Producto 11" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.23.58_1.jpeg" alt="Producto 11" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Producto 11</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+  <!-- CARD 12 -->
+  <div class="card">
+    <div class="carousel" data-index="0">
+      <div class="carousel-track">
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.24.00.jpeg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.24.00.jpeg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/WhatsApp_Image_2026-03-22_at_18.24.00.jpeg" alt="Producto 12" loading="lazy" />
+      </div>
+      <button class="carousel-btn prev">&#8249;</button>
+      <button class="carousel-btn next">&#8250;</button>
+      <div class="carousel-dots">
+        <span class="active"></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Producto 12</h3>
+      <p class="descripcion">Descripción del producto.</p>
+      <span class="precio">Consultá precio</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  🐰 Dulzuras Artesanales &mdash; Pascua 2026 🍫
+</footer>
+
+<a class="whatsapp-btn" href="https://wa.me/542915074187" target="_blank" rel="noopener noreferrer">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.782L0 32l8.418-2.007A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.853l-.485-.288-5.003 1.194 1.234-4.872-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.322s1.428 3.854 1.627 4.12c.199.266 2.81 4.29 6.808 6.017.951.41 1.693.655 2.272.839.954.304 1.823.261 2.51.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.726.232-1.891-.099-.166-.365-.266-.763-.465z"/>
+  </svg>
+  Pedí por WhatsApp
+</a>
+
+<script>
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const dots = carousel.querySelectorAll('.carousel-dots span');
+    const total = track.children.length;
+    let current = 0;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    carousel.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
+    carousel.querySelector('.next').addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  });
+</script>
 
 </body>
 </html>
