@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -44,7 +44,6 @@
       .catalogo { grid-template-columns: repeat(4, 1fr); }
     }
 
-    /* CARD */
     .card {
       background: #fff;
       border-radius: 16px;
@@ -60,7 +59,6 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    /* CARRUSEL */
     .carousel {
       position: relative;
       width: 100%;
@@ -78,7 +76,8 @@
     .carousel-track img {
       min-width: 100%;
       height: 100%;
-      object-fit: cover;`n      object-position: center;
+      object-fit: cover;
+      object-position: center;
       flex-shrink: 0;
     }
 
@@ -123,7 +122,6 @@
 
     .carousel-dots span.active { background: #7c3aed; }
 
-    /* CARD BODY */
     .card-body {
       padding: 10px 12px 14px;
       display: flex;
@@ -156,7 +154,6 @@
       align-self: flex-start;
     }
 
-    /* WHATSAPP */
     .whatsapp-btn {
       display: flex;
       align-items: center;
@@ -178,7 +175,6 @@
     }
 
     .whatsapp-btn:hover { background-color: #1ebe5d; transform: scale(1.05); }
-
     .whatsapp-btn svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
 
     footer {
@@ -192,8 +188,9 @@
 <body>
 
 <header>
+  <div class="decoracion">🐣🍫🌸</div>
   <h1>Dulzuras Artesanales</h1>
-  <p>Huevos artesanales de chocolate para esta Pascua ðŸ°</p>
+  <p>Chocolates artesanales para esta Pascua 🐰</p>
 </header>
 
 <div class="catalogo">
@@ -202,9 +199,9 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/capi.jpg" alt="BotÃ­n" loading="lazy" />
-        <img src="imagenes/capibara.jpg" alt="BotÃ­n Dorado" loading="lazy" />
-        <img src="imagenes/capibar.jpg" alt="Botines" loading="lazy" />
+        <img src="imagenes/capi.jpg" alt="Familia Capibara" loading="lazy" />
+        <img src="imagenes/capibara.jpg" alt="Familia Capibara" loading="lazy" />
+        <img src="imagenes/capibar.jpg" alt="Familia Capibara" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -223,9 +220,9 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/botin.jpg" alt="BotÃ­n" loading="lazy" />
-        <img src="imagenes/botinBlanco.jpg" alt="Box Capibara" loading="lazy" />
-        <img src="imagenes/botinExt.jpg" alt="Box Capibara" loading="lazy" />
+        <img src="imagenes/botin.jpg" alt="Botin" loading="lazy" />
+        <img src="imagenes/botinBlanco.jpg" alt="Botin Blanco" loading="lazy" />
+        <img src="imagenes/botinExt.jpg" alt="Botin Exterior" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -244,9 +241,9 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/box.jpg" alt="Box Capibara" loading="lazy" />
-        <img src="imagenes/boxInt.jpg" alt="Box Capibara" loading="lazy" />
-        <img src="imagenes/boxExt.jpg" alt="Box Conejos" loading="lazy" />
+        <img src="imagenes/box.jpg" alt="Box Deluxe" loading="lazy" />
+        <img src="imagenes/boxInt.jpg" alt="Box Interior" loading="lazy" />
+        <img src="imagenes/boxExt.jpg" alt="Box Exterior" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -265,13 +262,13 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/combo1.jpg" alt="Box Conejo" loading="lazy" />
-        <img src="imagenes/comb1.jpg" alt="Capibara Solo" loading="lazy" />
+        <img src="imagenes/combo1.jpg" alt="Combo Familiar XXL" loading="lazy" />
+        <img src="imagenes/comb1.jpg" alt="Combo Familiar XXL" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -285,17 +282,17 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/comb2.jpg" alt="Combo 9" loading="lazy" />
-        <img src="imagenes/combo2.jpg" alt="Combo 9" loading="lazy" />
+        <img src="imagenes/comb2.jpg" alt="Combo Familiar XL" loading="lazy" />
+        <img src="imagenes/combo2.jpg" alt="Combo Familiar XL" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
-      <h3>Combo Fmiliar XL</h3>
+      <h3>Combo Familiar XL</h3>
       <span class="precio">$20.000</span>
       <p class="descripcion">1 Huevo M + 4 Huevos S + 4 Huevos XS, que suman un total de 680 grs. de delicioso chocolate, con lentejas frutales, bombones, sorpresas y golosinas.</p>
     </div>
@@ -305,13 +302,13 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/nejox2.jpg" alt="Conejos Individuales" loading="lazy" />
-        <img src="imagenes/nejox2..jpg" alt="Copa" loading="lazy" />
+        <img src="imagenes/nejox2.jpg" alt="Conejos x2" loading="lazy" />
+        <img src="imagenes/nejox2..jpg" alt="Conejos x2" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -325,9 +322,9 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/h1.jpg" alt="huevos" loading="lazy" />
-        <img src="imagenes/h1..jpg" alt="Huevo 15" loading="lazy" />
-        <img src="imagenes/h1...jpg" alt="Pelotas" loading="lazy" />
+        <img src="imagenes/h1.jpg" alt="Huevo XS" loading="lazy" />
+        <img src="imagenes/h1..jpg" alt="Huevo XS" loading="lazy" />
+        <img src="imagenes/h1...jpg" alt="Huevo XS" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -346,14 +343,13 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/h2.jpg" alt="Producto 8" loading="lazy" />
-        <img src="imagenes/h2..jpg" alt="Producto 8" loading="lazy" />
-        <img src="imagenes/h2.." alt="Producto 8" loading="lazy" />
+        <img src="imagenes/h2.jpg" alt="Huevo S" loading="lazy" />
+        <img src="imagenes/h2..jpg" alt="Huevo S" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -367,12 +363,12 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/h2.5.jpg" alt="Producto 9" loading="lazy" />
+        <img src="imagenes/h2.5.jpg" alt="Huevo L" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span>
       </div>
     </div>
     <div class="card-body">
@@ -386,14 +382,13 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/h3.jpg" alt="Producto 10" loading="lazy" />
-        <img src="imagenes/h3.jpg" alt="Producto 10" loading="lazy" />
-        <img src="imagenes/h3Ext.jpg" alt="Producto 10" loading="lazy" />
+        <img src="imagenes/h3.jpg" alt="Huevo M" loading="lazy" />
+        <img src="imagenes/h3Ext.jpg" alt="Huevo M exterior" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -407,19 +402,19 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/pelotas.jpg" alt="Producto 11" loading="lazy" />
-        <img src="imagenes/pelotass.jpg" alt="Producto 11" loading="lazy" />
+        <img src="imagenes/pelotas.jpg" alt="Combo Balon Dorado" loading="lazy" />
+        <img src="imagenes/pelotass.jpg" alt="Combo Balon Dorado" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
       <h3>Combo Balon Dorado</h3>
       <span class="precio">$20.000</span>
-      <p class="descripcion">1 Huevo XXL + 2 Pelotas M + 2 Pelotas S, que suman un total de 740 grs. de delicioso chocolate, con lentejass frutales, bombones, sorpresas y golosinas.</p>
+      <p class="descripcion">1 Huevo XXL + 2 Pelotas M + 2 Pelotas S, que suman un total de 740 grs. de delicioso chocolate, con lentejas frutales, bombones, sorpresas y golosinas.</p>
     </div>
   </div>
 
@@ -427,13 +422,13 @@
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/x5.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/x5..jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/x5.jpg" alt="Combo Huevos x5" loading="lazy" />
+        <img src="imagenes/x5..jpg" alt="Combo Huevos x5" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -442,18 +437,18 @@
       <p class="descripcion">5 Huevos S, que suman un total de 175 grs. de delicioso chocolate, con lentejas frutales.</p>
     </div>
   </div>
-  
 
+  <!-- CARD 13 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/capiSolo.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/CapiSol.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/capiSolo.jpg" alt="Capibara Solitario" loading="lazy" />
+        <img src="imagenes/CapiSol.jpg" alt="Capibara Solitario" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -463,16 +458,17 @@
     </div>
   </div>
 
+  <!-- CARD 14 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/neja.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/nejaa.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/neja.jpg" alt="Coneja" loading="lazy" />
+        <img src="imagenes/nejaa.jpg" alt="Coneja" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -482,12 +478,13 @@
     </div>
   </div>
 
+  <!-- CARD 15 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/nejo.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/nejoo.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/nejovs.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/nejo.jpg" alt="Conejo" loading="lazy" />
+        <img src="imagenes/nejoo.jpg" alt="Conejo" loading="lazy" />
+        <img src="imagenes/nejovs.jpg" alt="Conejo" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -502,16 +499,17 @@
     </div>
   </div>
 
+  <!-- CARD 16 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/hL.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/hll.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/hL.jpg" alt="Huevo L" loading="lazy" />
+        <img src="imagenes/hll.jpg" alt="Huevo L" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -521,12 +519,13 @@
     </div>
   </div>
 
+  <!-- CARD 17 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/copa.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/copaInt.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/copaExt.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/copa.jpg" alt="Copa del Mundo" loading="lazy" />
+        <img src="imagenes/copaInt.jpg" alt="Copa interior" loading="lazy" />
+        <img src="imagenes/copaExt.jpg" alt="Copa exterior" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -541,21 +540,22 @@
     </div>
   </div>
 
+  <!-- CARD 18 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/p0.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p1.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p2.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p3.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p4.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p5.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p6.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/p0.jpg" alt="Paleta XL" loading="lazy" />
+        <img src="imagenes/p1.jpg" alt="Paleta XL" loading="lazy" />
+        <img src="imagenes/p2.jpg" alt="Paleta XL" loading="lazy" />
+        <img src="imagenes/p3.jpg" alt="Paleta XL" loading="lazy" />
+        <img src="imagenes/p4.jpg" alt="Paleta XL" loading="lazy" />
+        <img src="imagenes/p5.jpg" alt="Paleta XL" loading="lazy" />
+        <img src="imagenes/p6.jpg" alt="Paleta XL" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
       <div class="carousel-dots">
-        <span class="active"></span><span></span><span></span>
+        <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
     <div class="card-body">
@@ -565,12 +565,13 @@
     </div>
   </div>
 
+  <!-- CARD 19 -->
   <div class="card">
     <div class="carousel" data-index="0">
       <div class="carousel-track">
-        <img src="imagenes/p7.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p8.jpg" alt="Producto 12" loading="lazy" />
-        <img src="imagenes/p9.jpg" alt="Producto 12" loading="lazy" />
+        <img src="imagenes/p7.jpg" alt="Paleta M" loading="lazy" />
+        <img src="imagenes/p8.jpg" alt="Paleta M" loading="lazy" />
+        <img src="imagenes/p9.jpg" alt="Paleta M" loading="lazy" />
       </div>
       <button class="carousel-btn prev">&#8249;</button>
       <button class="carousel-btn next">&#8250;</button>
@@ -588,14 +589,14 @@
 </div>
 
 <footer>
-  ðŸ° Dulzuras Artesanales &mdash; Pascua 2026 ðŸ«
+  🐰 Dulzuras Artesanales &mdash; Pascua 2026 🍫
 </footer>
 
 <a class="whatsapp-btn" href="https://wa.me/542915078147" target="_blank" rel="noopener noreferrer">
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.782L0 32l8.418-2.007A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.77-1.853l-.485-.288-5.003 1.194 1.234-4.872-.317-.5A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.897.199-.266.398-1.03 1.294-1.263 1.56-.232.266-.465.299-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.36-2.214-2.758-.232-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.232.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.322s1.428 3.854 1.627 4.12c.199.266 2.81 4.29 6.808 6.017.951.41 1.693.655 2.272.839.954.304 1.823.261 2.51.158.766-.114 2.354-.962 2.686-1.891.332-.929.332-1.726.232-1.891-.099-.166-.365-.266-.763-.465z"/>
   </svg>
-  Pedi­ por WhatsApp
+  Pedí por WhatsApp
 </a>
 
 <script>
@@ -619,6 +620,3 @@
 
 </body>
 </html>
-
-
-
