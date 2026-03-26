@@ -632,6 +632,12 @@
   Pedí por WhatsApp
 </a>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
@@ -666,12 +672,6 @@
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
   });
 </script>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close">&times;</button>
-  <img id="lightbox-img" src="" alt="" />
-</div>
 
 </body>
 </html>
