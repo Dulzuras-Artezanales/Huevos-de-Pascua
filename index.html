@@ -639,23 +639,30 @@
 </div>
 
 <script>
+  // LIGHTBOX
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
-  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
 
-  document.querySelectorAll('.carousel-track img').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('active');
-    });
-  });
+  function closeLightbox() { lightbox.classList.remove('active'); }
 
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-close').addEventListener('touchend', e => { e.preventDefault(); closeLightbox(); });
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+  }
+
+  // CARRUSELES
   document.querySelectorAll('.carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const dots = carousel.querySelectorAll('.carousel-dots span');
-    const total = track.children.length;
+    const imgs = track.querySelectorAll('img');
+    const total = imgs.length;
     let current = 0;
+    let touchStartX = 0;
+    let touchMoved = false;
 
     function goTo(index) {
       current = (index + total) % total;
@@ -664,12 +671,40 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
-    // Recalcular al redimensionar la ventana
     window.addEventListener('resize', () => goTo(current));
 
     carousel.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
     carousel.querySelector('.next').addEventListener('click', () => goTo(current + 1));
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    // Swipe touch
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchMoved = false;
+    }, { passive: true });
+
+    track.addEventListener('touchmove', () => {
+      touchMoved = true;
+    }, { passive: true });
+
+    track.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        touchMoved = true;
+        diff > 0 ? goTo(current + 1) : goTo(current - 1);
+      }
+    });
+
+    // Lightbox al tocar imagen (solo si no fue swipe)
+    imgs.forEach(img => {
+      img.addEventListener('touchend', e => {
+        if (!touchMoved) {
+          e.preventDefault();
+          openLightbox(img.src);
+        }
+      });
+      img.addEventListener('click', () => openLightbox(img.src));
+    });
   });
 </script>
 
